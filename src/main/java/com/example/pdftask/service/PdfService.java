@@ -26,7 +26,7 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.layout.properties.UnitValue;
 
-@Service
+@Service("pdfService")
 public class PdfService implements IPdf {
 
 	@Value("${pdf.savePath}")
@@ -147,7 +147,7 @@ public class PdfService implements IPdf {
 		return new ByteArrayResource(outputStream.toByteArray());
 	}
 
-	private String generateFileHash(PdfInfo pdfInfo) {
+	public String generateFileHash(PdfInfo pdfInfo) {
 
 		try {
 

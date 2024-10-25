@@ -18,12 +18,12 @@ import com.example.pdftask.service.IPdf;
 public class PdfController {
 
 	@Autowired
-	private IPdf iPdf;
+	private IPdf pdfService;
 
 	@PostMapping(value = "/generate-pdf", produces = MediaType.APPLICATION_PDF_VALUE)
 	public ResponseEntity<?> generatePdf(@RequestBody PdfInfo pdfInfo) {
 
-		Resource resource = iPdf.generatePdf(pdfInfo);
+		Resource resource = pdfService.generatePdf(pdfInfo);
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_PDF);
